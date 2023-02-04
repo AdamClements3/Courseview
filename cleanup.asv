@@ -58,14 +58,11 @@ for i = 1:length(unique_col1)
     result{i} = data(indices,:);
 end
 %}
-data(:,1) = cellstr(strcat(data(:,1), string(data(:,2))));
-data(:,2) = [];
-
-uq = unique(data(:,1))
+data
 
 
 %add header
-%header = {'Name/Num' 'Title' 'A' 'B' 'C' 'D' 'F' 'W' 'I' 'P' 'NP' 'Professor'};
+%header = {'Name' 'Number' 'Title' 'A' 'B' 'C' 'D' 'F' 'W' 'I' 'P' 'NP' 'Professor'};
 %data = [transpose(header) data];
 %writecell(data,"GradeDistributions/clean.csv")
 
