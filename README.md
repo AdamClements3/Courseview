@@ -2,7 +2,7 @@
 CU Courseview
 
 
-Data Manipulation - MATLAB
-Web scraper APIs - Python
-Frontend - Django (+ React?)
-Hosting: AWS
+Data Manipulation - MATLAB\n
+Web scraper APIs - Python\n
+Frontend - Django (+ React?)\n
+Hosting: AWS\n
