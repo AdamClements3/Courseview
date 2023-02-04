@@ -5,3 +5,4 @@ from django.db import models
 class CourseInfo(models.Model):
     CourseNumber = models.CharField(max_length=4, default="")
     CourseTitle = models.CharField(max_length=4, default="")
+
