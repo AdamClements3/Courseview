@@ -58,14 +58,53 @@ for i = 1:length(unique_col1)
     result{i} = data(indices,:);
 end
 %}
-data(:,1) = cellstr(strcat(data(:,1), string(data(:,2))));
+data(:,1) = cellstr(strcat(data(:,1), string(data(:,2)), string(data(:,13))));
 data(:,2) = [];
+data(:,12) = [];
 
-uq = unique(data(:,1))
+uq = unique(data(:,1));
+final = cell(length(uq),1);
+for i=1:length(uq)
+    ind = strcmp(data(:,1), uq(i));
+    final{i} = data(ind,:);
+end
+
+gradeList = cell(length(final),1);
+finalData = cell(2082,11);
+overall = cell(1,11);
+for i=1:length(final)
+    overall(1) = final{i}(1);
+    overall(2) = final{i}(2);
+    grades = final{i}(:,3:11);
+    grades = cellfun(@(x) x(1:end-1), grades, 'UniformOutput', false);
+    for j = 1:9
+        overall(j+2) = cellstr(strcat(num2str(mean(str2double(grades(:,j)))), "%"));
+    end
+    finalData(i,:) = overall;
+end
 
 
-%add header
-%header = {'Name/Num' 'Title' 'A' 'B' 'C' 'D' 'F' 'W' 'I' 'P' 'NP' 'Professor'};
-%data = [transpose(header) data];
-%writecell(data,"GradeDistributions/clean.csv")
+%{
+result = cell(3,3);
+for i = 1:3
+    [first, remain] = strtok(data{i}, '0123456789');
+    [num, last] = strtok(remain, '0123456789');
+    result(i,:) = {first, num, last};
+end
+%}
+
+splitData = finalData(:,1);
+result = cell(2082,3);
+for i=1:2082
+    [first, remain] = strtok(splitData{i}, '0123456789');
+    [num, last] = strtok(remain, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ');
+    result(i,:) = {first, num, last};
+end
+
+finalData(:,1) = result(:,1);
+finalData(:,12) = result(:,2);
+finalData(:,13) = result(:,3);
+
+writecell(finalData,"GradeDistributions/clean.csv")
+
 
