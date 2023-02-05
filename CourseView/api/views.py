@@ -39,15 +39,13 @@ def SendInfo(request):
             CourseNumber = courseNum,
             CourseTitle = courseName
         )
-        your_json = [{'courseNum': courseNum, 'courseTitle': courseName}];
+        your_json = {"courseNum": courseNum, "courseTitle": courseName, "grades": [1, 2, 3]}
 
         # Return function logic here
 
 
 
-
-
-        return HttpResponse(your_json)
+        return JsonResponse(your_json,status=status.HTTP_200_OK)
 
 
 # class SendInfo(request):
