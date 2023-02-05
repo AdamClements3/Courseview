@@ -8,6 +8,7 @@ function MainPage(props) {
         <div>
             <Card name='Hi'></Card>
             <InputHandler></InputHandler>
+            <div className = 'Logo'></div>
         </div>
     )
 }

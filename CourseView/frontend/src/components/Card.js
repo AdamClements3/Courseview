@@ -1,8 +1,9 @@
 import * as React from "react"
+// import "CourseView/frontend/static/css/index.css"
 
 function Card(props) {
     return (
-        <div className='card'>
+        <div className={props.class}>
             <h3>{props.name}</h3>
             <body>{props.body}</body>
         </div>
