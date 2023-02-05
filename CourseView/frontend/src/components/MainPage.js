@@ -6,7 +6,7 @@ import InputHandler from "./InputHandler";
 function MainPage(props) {
     return (
         <div>
-            <Card header='Hi' children='Hi' footer='Hi'></Card>
+            <Card name='Hi'></Card>
             <InputHandler></InputHandler>
         </div>
     )

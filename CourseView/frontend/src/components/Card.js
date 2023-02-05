@@ -3,15 +3,8 @@ import * as React from "react"
 function Card(props) {
     return (
         <div className='card'>
-            <div className ='card-header'>
-                <h3>{props.header}</h3>
-            </div>
-            <div className='card-body'>
-                {props.children}
-            </div>
-            <div className='card-footer'>
-                <p>{props.footer}</p>
-            </div>
+            <h3>{props.name}</h3>
+            <body>{props.body}</body>
         </div>
     )
 }

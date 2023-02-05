@@ -11,7 +11,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-import pullData
+from .pullData import pullData
 
 import json
 
@@ -49,13 +49,9 @@ def SendInfo(request):
              "stuff": data
         }
 
-<<<<<<< HEAD
-        return JsonResponse(passData,status = status.HTTP_200_OK)
-=======
 
 
-        return JsonResponse(your_json,status=status.HTTP_200_OK)
->>>>>>> origin/dataTransferMerge
+        return JsonResponse(passData,status=status.HTTP_200_OK)
 
 
 # class SendInfo(request):

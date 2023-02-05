@@ -1,8 +1,8 @@
 import pandas as pd
-import APIs as api
+from .APIs import getRMPInfo, getCourseInfo
 
 def pullData(courseName, courseNumber):
-    df = pd.read_csv("CourseView/api/clean.csv")
+    df = pd.read_csv("./api/clean.csv")
     df = df[df.apply(lambda row: row.astype(str).str.contains(courseName).any(), axis=1)]
     df = df[df.apply(lambda row: row.astype(str).str.contains(courseNumber).any(), axis=1)]
 
@@ -22,7 +22,7 @@ def pullData(courseName, courseNumber):
     # [13] = RMP Diff
     # [14] = RMP Take Again
 
-    desc = api.getCourseInfo(courseName, courseNumber)
+    desc = getCourseInfo(courseName, courseNumber)
     desc = desc.replace("\xa0"," ")
     col_list = df[df.columns[12]].values.tolist()
 
@@ -46,7 +46,7 @@ def pullData(courseName, courseNumber):
         for j in range (2,11):
             storage[i][j] = gradelist[i][j-2]
         
-        scores = api.getRMPInfo(firstname, lastname)
+        scores = getRMPInfo(firstname, lastname)
         for j in range(3):
             storage[i][j+11] = scores[j]
     
