@@ -40,7 +40,7 @@ def SendInfo(request):
             CourseNumber = courseNum,
             CourseTitle = courseName
         )
-        your_json = [{'courseNum': courseNum, 'courseTitle': courseName}];
+        your_json = {"courseNum": courseNum, "courseTitle": courseName, "grades": [1, 2, 3]}
 
         # Return function logic here
         
@@ -49,7 +49,13 @@ def SendInfo(request):
              "stuff": data
         }
 
+<<<<<<< HEAD
         return JsonResponse(passData,status = status.HTTP_200_OK)
+=======
+
+
+        return JsonResponse(your_json,status=status.HTTP_200_OK)
+>>>>>>> origin/dataTransferMerge
 
 
 # class SendInfo(request):
