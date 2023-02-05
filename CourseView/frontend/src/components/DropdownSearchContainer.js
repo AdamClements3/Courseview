@@ -174,10 +174,10 @@ function collectVals() {
     console.log("clicked")
     submitClicked = true;
     //send to python
-    cardList.push(<Card name="Christopher Plaue" score="5" diff="5" percent="50%"/>)
-    CardContainer()
-    const elem = document.getElementById("cardContainerDivision");
-    elem.style.display = "block";
+    // cardList.push(<Card name="Christopher Plaue" score="5" diff="5" percent="50%"/>)
+    // CardContainer()
+    // const elem = document.getElementById("cardContainerDivision");
+    // elem.style.display = "block";
   }
 }
 
