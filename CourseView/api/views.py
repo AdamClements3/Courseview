@@ -10,6 +10,9 @@ import io
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+
+import json
 
 # import matplotlib.pyplot as plt
 
@@ -26,15 +29,38 @@ class CourseInfoView(generics.ListAPIView):
         queryset = CourseInfo.objects.all()
         serializer_class = UserInputSerializer
 
-class SendInfo(APIView):
-    serializer_class = UserInputSerializer
-    def post(self, request, format=None):
-        courseNum = request.GET.get(CourseInfo.courseNumber)
-        courseDep = request.GET.get(CourseInfo.courseTitle)
+@csrf_exempt
+def SendInfo(request):
+    if request.method == 'POST':
+        json_data = json.loads(request.body)
+        courseName = json_data['params']['valueDep']
+        courseNum = json_data['params']['valueCourse']
+        CourseInfo.objects.create(
+            CourseNumber = courseNum,
+            CourseTitle = courseName
+        )
+        your_json = [{'courseNum': courseNum, 'courseTitle': courseName}];
 
-        data = UserInputSerializer(CourseInfo).data
-        return Response(data, status=status.HTTP_200_OK)
+        # Return function logic here
 
+
+
+
+
+        return HttpResponse(your_json)
+
+
+# class SendInfo(request):
+#     serializer_class = UserInputSerializer
+#     def post(self, request, *args, **kwargs):
+#         data = request.GET.get()
+#     def post(self, request, format=None):
+#         if request.method == 'POST':
+#             newValue = request.POST.get('newValue')
+#         if success:
+#             return Response({'Data Update Successful' : 'Good job'}, status = status.HTTP_200_OK)
+#         else:
+#             return Response({'Bad Request': 'Something bad lmao'}, status=status.HTTP_400_BAD_REQUEST)
 
 
 def display_graph(request):

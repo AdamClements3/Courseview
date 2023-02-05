@@ -1,38 +1,40 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 // import { Grid, Button, ButtonGroup, Typography} from '@mui/material';
 import Card from "./Card";
-import InputBox from "./InputBox"
+import InputBox from "./InputBox";
+import axios from "axios";
 
 function InputHandler() {
-    // const [valueDep, setValueDep] = useState('');
-    // const [valueCourse, setValueCourse] = userState('');
+    // Unsure of difference between var and const, or function of setValue
+    var [valueDep, setValueDep] = useState('');
+    var [valueCourse, setValueCourse] = useState('');
 
-    async function updateData() {
-        const response = await fetch("/api/send-info", 
-        {
-            method: 'PUT',
-            body: JSON.stringify({ value })   
+    async function updateData(valueDep, valueCourse) {
+        axios.post('/api/send-info', {
+            params: {
+                valueDep: valueDep,
+                valueCourse: valueCourse
+            }
         })
-        if (response.ok) {
-            console.log('Data update success');
-        }
-        else
-        {
-            console.error('data womp womp');
-        }
-
+        .then(response => {
+            console.log(response.data);
+        })
+        .catch(error => {
+            console.error(error);
+        });
     }
 
     function InputChange(event) {
-        var courseNum = document.getElementById("CourseNum").value;
-        var courseDep = document.getElementById("CourseDep").value;
-        if (courseNum < "0000" || courseNum > "9999")
+        // console.log();
+        valueDep = document.getElementById("CourseDep").value;
+        valueCourse = document.getElementById("CourseNum").value;
+        if (valueCourse < "0000" || valueCourse > "9999")
         {
             alert("No Subject Selected or Invalid Course Number");
         }
         else
         {
-            updateData(courseNum, courseDep);
+            updateData(valueDep, valueCourse);
         }
     }
 
