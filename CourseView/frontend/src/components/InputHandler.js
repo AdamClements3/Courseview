@@ -20,12 +20,13 @@ function InputHandler() {
         .then(response => {
 
             var backendJson = response.data;
-            var dictLength = Object.keys(backendJson);
-            console.log(dictLength);
-            // for (i = 0; i < dictLength; i++)
-            // {
-
-            // }
+            var backendJson = backendJson['stuff'];
+            var dictLength = backendJson.length[0];
+            
+            for (i = 0; i < dictLength; i++)
+            {
+                console.log(i);
+            }
 
         })
         .catch(error => {
