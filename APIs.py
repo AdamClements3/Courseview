@@ -3,6 +3,9 @@ import re
 
 def getRMPInfo(FirstName, LastName):
 
+    FirstName = FirstName.replace(" ","%20")
+    LastName = LastName.replace(" ","%20")
+
     startingURL = "https://www.ratemyprofessors.com/search/teachers?query=" + FirstName + "%20" + LastName + "&sid=U2Nob29sLTI0Mg=="
 
     with urllib.request.urlopen(startingURL) as url:
@@ -27,14 +30,3 @@ def getCourseInfo(CourseTitle, CourseNum):
             fullStr = re.sub(r'&#.+?;', '', fullStr)
             fullStr = re.sub(' +', ' ', fullStr)
             return fullStr
-
-firstName = "Christopher"
-lastName = "Plaue"
-outList = getRMPInfo(firstName,lastName)
-courseDesc = getCourseInfo("CPSC", 1010)
-print("RMP Stats for Christopher Plaue:")
-print("RMP Score: " + outList[0])
-print("Difficulty Rating: " + outList[1])
-print("% who would take again: " + outList[2] + "%\n")
-print("CPSC 1010 Course Description:")
-print(courseDesc)

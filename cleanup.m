@@ -105,6 +105,9 @@ finalData(:,1) = result(:,1);
 finalData(:,12) = result(:,2);
 finalData(:,13) = result(:,3);
 
+header = {'Course' 'A' 'B' 'C' 'D' 'F' 'W' 'I' 'P' 'NP' 'Number' 'Professor'};
+
+
 writecell(finalData,"GradeDistributions/clean.csv")
 
 
