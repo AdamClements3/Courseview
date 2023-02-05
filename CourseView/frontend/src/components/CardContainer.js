@@ -29,26 +29,26 @@ function CardContainer(props) {
 
     if (props.data.length < 2)
     {
-        var prof1GradeString = "Grade Distribution: A: " + prof1[2] + "B: " +  prof1[3] + "C: " + prof1[4] + "D: " + prof1[5] + "F: " + prof1[6] + "W: " + prof1[7] + "I: " + prof1[8] + "P: " + prof1[9] + "N(P): " + prof1[10];
+        var prof1GradeString = "Grade Distribution: A: " + prof1[2] + "B: " +  prof1[3] + "C: " + prof1[4] + "D: " + prof1[5] + "F: " + prof1[6] + "W: " + prof1[7] + "RMP Score: " + prof1[11] + "Difficulty: " + prof1[12] + "Take Again: " + prof1[13];
         var prof2GradeString = "";
         var prof3GradeString = "";
     }
     else if (props.data.length < 3)
     {
         // var backEnd = [props.data[0], props.data[1],[[''], [''], [''], [''], [''], [''], [''], [''], [''], [''], [''], [''], [''], ['']]];
-        var prof1GradeString = "Grade Distribution: A: " + prof1[2] + "B: " +  prof1[3] + "C: " + prof1[4] + "D: " + prof1[5] + "F: " + prof1[6] + "W: " + prof1[7] + "I: " + prof1[8] + "P: " + prof1[9] + "N(P): " + prof1[10];
-        var prof2GradeString = "Grade Distribution: A: " + prof2[2] + "B: " +  prof2[3] + "C: " + prof2[4] + "D: " + prof2[5] + "F: " + prof2[6] + "W: " + prof2[7] + "I: " + prof2[8] + "P: " + prof2[9] + "N(P): " + prof2[10];
+        var prof1GradeString = "Grade Distribution: A: " + prof1[2] + "B: " +  prof1[3] + "C: " + prof1[4] + "D: " + prof1[5] + "F: " + prof1[6] + "W: " + prof1[7] + "RMP Score: " + prof1[11] + "Difficulty: " + prof1[12] + "Take Again: " + prof1[13];
+        var prof2GradeString = "Grade Distribution: A: " + prof2[2] + "B: " +  prof2[3] + "C: " + prof2[4] + "D: " + prof2[5] + "F: " + prof2[6] + "W: " + prof2[7] + "RMP Score: " + prof2[11] + "Difficulty: " + prof2[12] + "Take Again: " + prof2[13];
         var prof3GradeString = "";
     }
     else
     {
         // var backEnd = props.data
-        var prof1GradeString = "Grade Distribution: A: " + prof1[2] + "B: " +  prof1[3] + "C: " + prof1[4] + "D: " + prof1[5] + "F: " + prof1[6] + "W: " + prof1[7] + "I: " + prof1[8] + "P: " + prof1[9] + "N(P): " + prof1[10];
-        var prof2GradeString = "Grade Distribution: A: " + prof2[2] + "B: " +  prof2[3] + "C: " + prof2[4] + "D: " + prof2[5] + "F: " + prof2[6] + "W: " + prof2[7] + "I: " + prof2[8] + "P: " + prof2[9] + "N(P): " + prof2[10];
-        var prof3GradeString = "Grade Distribution: A: " + prof3[2] + "B: " +  prof3[3] + "C: " + prof3[4] + "D: " + prof3[5] + "F: " + prof3[6] + "W: " + prof3[7] + "I: " + prof3[8] + "P: " + prof3[9] + "N(P): " + prof3[10];
+        var prof1GradeString = "Grade Distribution: A: " + prof1[2] + "B: " +  prof1[3] + "C: " + prof1[4] + "D: " + prof1[5] + "F: " + prof1[6] + "W: " + prof1[7] + "RMP Score: " + prof1[11] + "Difficulty: " + prof1[12] + "Take Again: " + prof1[13];
+        var prof2GradeString = "Grade Distribution: A: " + prof2[2] + "B: " +  prof2[3] + "C: " + prof2[4] + "D: " + prof2[5] + "F: " + prof2[6] + "W: " + prof2[7] + "RMP Score: " + prof2[11] + "Difficulty: " + prof2[12] + "Take Again: " + prof2[13];
+        var prof3GradeString = "Grade Distribution: A: " + prof3[2] + "B: " +  prof3[3] + "C: " + prof3[4] + "D: " + prof3[5] + "F: " + prof3[6] + "W: " + prof3[7] + "RMP Score: " + prof3[11] + "Difficulty: " + prof3[12] + "Take Again: " + prof3[13];
     }
 
-    // var prof1GradeString = "Grade Distribution: A: " + prof1[2] + "B: " +  prof1[3] + "C: " + prof1[4] + "D: " + prof1[5] + "F: " + prof1[6] + "W: " + prof1[7] + "I: " + prof1[8] + "P: " + prof1[9] + "N(P): " + prof1[10];
+    // var prof1GradeString = "Grade Distribution: A: " + prof1[2] + "B: " +  prof1[3] + "C: " + prof1[4] + "D: " + prof1[5] + "F: " + prof1[6] + "W: " + prof1[7] + "RMP Score: " + prof1[8] + "RMP Score: " + prof1[9] + "Difficulty: " + prof1[10];
 
     return (
         <div class = 'card-container'>
