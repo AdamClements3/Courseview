@@ -6,7 +6,7 @@ import InputHandler from "./InputHandler";
 function MainPage(props) {
     return (
         <div>
-            <Card name='Hi'></Card>
+            <Card name='Clemson University CourseView'></Card>
             <InputHandler></InputHandler>
             <div className = 'Logo'></div>
         </div>
