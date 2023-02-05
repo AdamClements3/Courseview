@@ -8,6 +8,7 @@ function InputHandler() {
     // Unsure of difference between var and const, or function of setValue
     var [valueDep, setValueDep] = useState('');
     var [valueCourse, setValueCourse] = useState('');
+    var backendDictionary = '';
 
     async function updateData(valueDep, valueCourse) {
         axios.post('/api/send-info', {
@@ -18,6 +19,11 @@ function InputHandler() {
         })
         .then(response => {
             console.log(response.data);
+
+            // Use this when backend is ready
+            // backendDictionary = response.data;
+            // backendDictionary = 
+
         })
         .catch(error => {
             console.error(error);
