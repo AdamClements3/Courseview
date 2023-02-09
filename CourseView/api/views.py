@@ -11,6 +11,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+from .pullData import pullData
 
 import json
 
@@ -42,10 +43,15 @@ def SendInfo(request):
         your_json = {"courseNum": courseNum, "courseTitle": courseName, "grades": [1, 2, 3]}
 
         # Return function logic here
+        
+        data = pullData(courseName,courseNum)
+        passData = {
+             "stuff": data
+        }
 
 
 
-        return JsonResponse(your_json,status=status.HTTP_200_OK)
+        return JsonResponse(passData,status=status.HTTP_200_OK)
 
 
 # class SendInfo(request):
